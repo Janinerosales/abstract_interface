@@ -7,11 +7,15 @@ abstract class Database
     public $servername ="localhost";
     public $username ="root";
     public $password ="";
-    public $function
+    public $dbname ="abstract";
+
     public function_construct($conn)
     {
         $this->conn= new msyqli($this->servername,$this->username,$this->password);
-        $db
+
+        $db = "CREATE DATABASE IF NOT EXISTS $this->dbname";
+        
+        $this->conn->query($db);
     }
     abstract public function db(): string;
 }
@@ -24,5 +28,5 @@ class user extends Database
     }
 
 }
-class 
+
 
