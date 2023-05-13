@@ -10,16 +10,18 @@ abstract class Database
     public function_construct($conn)
     {
         $this->conn= new msyqli($this->servername,$this->username,$this->password);
+        $db
     }
-    abstract public function intro(): string;
+    abstract public function db(): string;
 }
 
 class user extends Database
 {
-    public function intro():string;
+    public function db():string;
     {
         return $this->conn;
     }
 
 }
 class 
+
