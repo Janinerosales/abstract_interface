@@ -7,6 +7,7 @@ abstract class Database
     public $servername ="localhost";
     public $username ="root";
     public $password ="";
+    public $function
     public function_construct($conn)
     {
         $this->conn= new msyqli($this->servername,$this->username,$this->password);
