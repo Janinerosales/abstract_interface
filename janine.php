@@ -1,7 +1,6 @@
 <?php
 
 abstract class Database
-
 {
     public $conn;
     public $servername = "localhost";
@@ -23,7 +22,7 @@ class Dbname extends Database
 {
     public function db():string
     {
-        $dbName ="CREATE DATABASE IF NOT EXISTS $this->dbname";
+        $dbName ="CREATE DATABASE IF NOT EXISTS $this->dbName";
         
         return $this->conn->query($dbName);
     }
