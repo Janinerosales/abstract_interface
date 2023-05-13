@@ -4,29 +4,32 @@ abstract class Database
 
 {
     public $conn;
-    public $servername ="localhost";
-    public $username ="root";
-    public $password ="";
-    public $dbname ="abstract";
+    public $servername = "localhost";
+    public $username = "root";
+    public $password = "";
+    public $dbName = "abstract";
 
-    public function_construct($conn)
+    public function __construct()
     {
-        $this->conn= new msyqli($this->servername,$this->username,$this->password);
-
-        $db = "CREATE DATABASE IF NOT EXISTS $this->dbname";
+        $this->conn = new mysqli($this->servername, $this->username, $this->password);
         
-        $this->conn->query($db);
+        //$this->conn->query($db);
     }
     abstract public function db(): string;
 }
 
-class user extends Database
-{
-    public function db():string;
-    {
-        return $this->conn;
-    }
+class Dbname extends Database
 
+{
+    public function db():string
+    {
+        $dbName ="CREATE DATABASE IF NOT EXISTS $this->dbname";
+        
+        return $this->conn->query($dbName);
+    }
 }
+
+$new = new DbName();
+$new->db();
 
 
